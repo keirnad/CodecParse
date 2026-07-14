@@ -24,7 +24,7 @@ func ALawParse(audioFile string, handler func(payload []byte, sequenceNumber uin
 	}()
 
 	sequenceNumber := uint16(1)
-	timestamp := uint32(90000)
+	timestamp := uint32(160)
 	ssrc := rand.Uint32()
 
 	buffer := make([]byte, 160)
@@ -44,9 +44,8 @@ func ALawParse(audioFile string, handler func(payload []byte, sequenceNumber uin
 			break
 		}
 
-		sequenceNumber++
-		timestamp += 3000
-
 		handler(buffer, sequenceNumber, timestamp, ssrc)
+		sequenceNumber++
+		timestamp += 160
 	}
 }
