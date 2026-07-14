@@ -22,8 +22,6 @@ func ALawParse(audioFile string, handler func(payload []byte)) {
 		}
 	}()
 
-	//160 octets
-
 	buffer := make([]byte, 160)
 
 	for {
